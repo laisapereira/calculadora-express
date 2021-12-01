@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Express</title>
+
+    <!--importando css-->
+    <link rel="stylesheet" href="index.css">
+
+    <!-- importando fontes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Calculadora Express</h1>
+    </header>
+
+    <main>
+        <div id="forms">
+            <section id="form">
+                <input type="number" id="firstNumber" placeholder="Primeiro número">
+                <input type="number" id="secondNumber" placeholder="Segundo número">
+
+                <div id="options">
+                    <label for="operations">Selecione uma operação</label>
+                    <select id="operations">
+                        <option value="Adição">Adição</option>
+                        <option value="Multiplicação">Multiplicação</option>
+                        <option value="Subtração">Subtração</option>
+                        <option value="Divisão">Divisão</option>
+                    </select>
+                    <div>
+                        <input type="button" id="verificar" value="Verificar" onclick="calculator()">
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+    </main>
+
+    <script>
+        function calculator() {
+            let n1 = document.querySelector('input#firstNumber').value
+            let n2 = document.querySelector('input#secondNumber').value
+            let operation = document.getElementById('operations').value
+
+
+            if (n1 != "" && n2 != "") {
+                if (operation == 'Adição') {
+                    window.location.href = `http://localhost:3000/soma/${n1}/${n2}`;
+                } else if (operation == 'Subtração') {
+                    window.location.href = `http://localhost:3000/subtr/${n1}/${n2}`;
+                } else if (operation == 'Multiplicação') {
+                    window.location.href = `http://localhost:3000/mult/${n1}/${n2}`;
+                } else if (operation == 'Divisão') {
+                    window.location.href = `http://localhost:3000/divi/${n1}/${n2}`;
+                }
+            } else {
+                alert("Por favor, insira valores válidos")
+            }
+        }
+    </script>
+
+</body>
+
+
+
+</html>
